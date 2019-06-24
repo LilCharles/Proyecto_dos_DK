@@ -1,0 +1,1652 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.6.2" />
+<title>alvarito API documentation</title>
+<meta name="description" content="" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase;cursor:pointer}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>alvarito</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">import pygame
+
+NEGRO = (0, 0, 0)
+BLANCO = (255, 255, 255)
+AZUL = (0, 0, 255)
+ROJO = (255, 0, 0)
+VERDE = (0, 255, 0)
+&#34;&#34;&#34;Colores&#34;&#34;&#34;
+
+LARGO_PANTALLA = 1000
+ALTO_PANTALLA = 800
+&#34;&#34;&#34;Dimensiones de la pantalla&#34;&#34;&#34;
+
+
+class Protagonista(pygame.sprite.Sprite):
+    cambio_x = 0
+    cambio_y = 0
+    nivel = None
+
+    def __init__(self):
+        &#34;&#34;&#34;Define la carga de imagen del protagonista
+        &#34;&#34;&#34;
+        super().__init__()
+
+        self.walkingLeft = [pygame.image.load(&#34;L1.png&#34;),
+                            pygame.image.load(&#34;L2.png&#34;),
+                            pygame.image.load(&#34;L3.png&#34;),
+                            pygame.image.load(&#34;L4.png&#34;),
+                            pygame.image.load(&#34;L5.png&#34;),
+                            pygame.image.load(&#34;L6.png&#34;),
+                            pygame.image.load(&#34;L7.png&#34;),
+                            pygame.image.load(&#34;L8.png&#34;),
+                            pygame.image.load(&#34;L9.png&#34;)
+                            ]
+        self.walkingRight = [pygame.image.load(&#34;R1.png&#34;),
+                             pygame.image.load(&#34;R2.png&#34;),
+                             pygame.image.load(&#34;R3.png&#34;),
+                             pygame.image.load(&#34;R4.png&#34;),
+                             pygame.image.load(&#34;R5.png&#34;),
+                             pygame.image.load(&#34;R6.png&#34;),
+                             pygame.image.load(&#34;R7.png&#34;),
+                             pygame.image.load(&#34;R8.png&#34;),
+                             pygame.image.load(&#34;R9.png&#34;)
+                             ]
+
+        self.direction = &#34;R&#34;
+        self.image = self.walkingRight[0]
+        self.rect = self.image.get_rect()
+
+    def update(self):
+        &#34;&#34;&#34;Actualiza el movimiento y animación del protagonista y
+        comprueba colisiones con los objetos del nivel
+        &#34;&#34;&#34;
+        self.calc_grav()
+        self.rect.x += self.cambio_x
+        pos = self.rect.x
+        if self.direction == &#34;R&#34;:
+            frame = (pos // 27) % len(self.walkingRight)
+            self.image = self.walkingRight[frame]
+        else:
+            frame = (pos // 27) % len(self.walkingLeft)
+            self.image = self.walkingLeft[frame]
+
+        lista_impactos_bloques = pygame.sprite.spritecollide(self,
+                                                             self.nivel.listade_plataformas, False)
+
+        for bloque in lista_impactos_bloques:
+            if self.cambio_x &gt; 0:
+                self.rect.right = bloque.rect.left
+            elif self.cambio_x &lt; 0:
+                self.rect.left = bloque.rect.right
+        self.rect.y += self.cambio_y
+
+        lista_impactos_bloques = pygame.sprite.spritecollide(self,
+                                                             self.nivel.listade_plataformas, False)
+
+        for bloque in lista_impactos_bloques:
+            if self.cambio_y &gt; 0:
+                self.rect.bottom = bloque.rect.top
+            elif self.cambio_y &lt; 0:
+                self.rect.top = bloque.rect.bottom
+            self.cambio_y = 0
+
+    def calc_grav(self):
+        &#34;&#34;&#34; Permite calcular la gravedad dek protagonista
+        &#34;&#34;&#34;
+        if self.cambio_y == 0:
+            self.cambio_y = 1
+        else:
+            self.cambio_y += .35
+
+        if self.rect.y &gt;= ALTO_PANTALLA - self.rect.height and \
+                self.cambio_y &gt;= 0:
+            self.cambio_y = 0
+            self.rect.y = ALTO_PANTALLA - self.rect.height
+
+    def saltar(self):
+        &#34;&#34;&#34; Permite al protagonista saltar
+        &#34;&#34;&#34;
+        self.rect.y += 2
+        lista_impactos_plataforma = pygame.sprite.spritecollide(self,
+                                                                self.nivel.listade_plataformas, False)
+        self.rect.y -= 2
+
+        if len(lista_impactos_plataforma) &gt; 0 or \
+                self.rect.bottom &gt;= ALTO_PANTALLA:
+            self.cambio_y = -8
+
+    def ir_izquierda(self):
+        &#34;&#34;&#34;Permite al protagonista moverse a la izquierda
+        &#34;&#34;&#34;
+        self.cambio_x = -6
+        self.direction = &#34;L&#34;
+
+    def ir_derecha(self):
+        &#34;&#34;&#34;Permite al protagonista moverse a la izquierda
+        &#34;&#34;&#34;
+        self.cambio_x = 6
+        self.direction = &#34;R&#34;
+
+    def stop(self):
+        &#34;&#34;&#34;Permite al protagonista quedarse quieto
+        &#34;&#34;&#34;
+        self.cambio_x = 0
+
+
+class Plataforma(pygame.sprite.Sprite):
+    def __init__(self, largo, alto):
+        &#34;&#34;&#34; Constructor de las plataformas donde se mueve el
+        protagonista
+        Args:
+            largo (int): Largo de la plataforma
+            alto (int): Alto de la plataforma
+        &#34;&#34;&#34;
+        super().__init__()
+        self.image = pygame.Surface([largo, alto])
+        self.image.fill(NEGRO)
+        self.rect = self.image.get_rect()
+
+
+class PlataformaEnMovimiento(Plataforma):
+    cambio_x = 0
+    cambio_y = 0
+
+    limite_superior = 0
+    limite_inferior = 0
+    limite_izquierda = 0
+    limite_derecha = 0
+
+    protagonista = None
+
+    Nivel = None
+
+    def update(self):
+        &#34;&#34;&#34;Actualiza el movimiento del protagonista sobre las
+        plataformas móviles y comprueba las colisiones con las mismas
+        &#34;&#34;&#34;
+        self.rect.x += self.cambio_x
+
+        impacto = pygame.sprite.collide_rect(self, self.protagonista)
+        if impacto:
+            if self.cambio_x &lt; 0:
+                self.protagonista.rect.right = self.rect.left
+            else:
+                self.protagonista.rect.left = self.rect.right
+
+        self.rect.y += self.cambio_y
+
+        impacto = pygame.sprite.collide_rect(self, self.protagonista)
+        if impacto:
+            if self.cambio_y &lt; 0:
+                self.protagonista.rect.bottom = self.rect.top
+            else:
+                self.protagonista.rect.top = self.rect.bottom
+
+        if self.rect.bottom &gt; self.limite_inferior or \
+                self.rect.top &lt; self.limite_superior:
+            self.cambio_y *= -1
+
+
+class Nivel(object):
+    def __init__(self, protagonista):
+        &#34;&#34;&#34; Constructor requerido para cuando las plataformas
+        móviles colisionan con el protagonista
+        Args:
+            protagonista (objeto): Contiene los atributos del
+            protagonista
+        &#34;&#34;&#34;
+        self.listade_plataformas = pygame.sprite.Group()
+        self.protagonista = protagonista
+        self.imagende_fondo = None
+
+    def update(self):
+        &#34;&#34;&#34; Actualiza las plataformas en el nivel
+        &#34;&#34;&#34;
+        self.listade_plataformas.update()
+
+    def draw(self, pantalla):
+        &#34;&#34;&#34; Dibuja todo en el nivel
+        Args:
+            pantalla (pygame.display.set_mode): Crea la pantalla del
+            juego con las dimensiones entregadas
+        &#34;&#34;&#34;
+        pantalla.fill(AZUL)
+        pantalla.blit(self.imagende_fondo, (0, 0))
+
+        self.listade_plataformas.draw(pantalla)
+
+
+
+class Nivel_01(Nivel):
+    def __init__(self, protagonista):
+        &#34;&#34;&#34;Crea el nivel 1 con sus respectivas plataformas
+        Args:
+            protagonista (objeto): Contiene los atributos del
+            protagonista
+        &#34;&#34;&#34;
+        Nivel.__init__(self, protagonista)
+
+        self.imagende_fondo = pygame.image.load(&#34;fondof.png&#34;).convert()
+
+        nivel = [[500, 10, 0, 120],
+                 [100, 10, 450, 330],
+                 [100, 10, 270, 330],
+                 [100, 10, 100, 420],
+                 [100, 10, 270, 480],
+                 [100, 10, 0, 550],
+                 [600, 10, 200, 550],
+                 [100, 10, 900, 550],
+                 [450, 10, 0, 680],
+                 [450, 10, 550, 680],
+                 [1000, 1, 0, 0]
+                 ]
+
+        for plataforma in nivel:
+            bloque = Plataforma(plataforma[0], plataforma[1])
+            bloque.rect.x = plataforma[2]
+            bloque.rect.y = plataforma[3]
+            bloque.protagonista = self.protagonista
+            self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 451
+        bloque.rect.y = 710
+        bloque.limite_superior = 710
+        bloque.limite_inferior = 790
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 100
+        bloque.rect.y = 590
+        bloque.limite_superior = 590
+        bloque.limite_inferior = 690
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 800
+        bloque.rect.y = 560
+        bloque.limite_superior = 560
+        bloque.limite_inferior = 670
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 550
+        bloque.rect.y = 90
+        bloque.limite_superior = 90
+        bloque.limite_inferior = 270
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+
+class Nivel_02(Nivel):
+    def __init__(self, protagonista):
+        &#34;&#34;&#34;Crea el nivel 2 con sus respectivas plataformas
+        Args:
+            protagonista (objeto): Contiene los atributos del
+            protagonista
+        &#34;&#34;&#34;
+        Nivel.__init__(self, protagonista)
+
+        self.imagende_fondo = pygame.image.load(&#34;fondof.png&#34;).convert()
+
+        nivel = [[200, 10, 0, 680],
+                 [200, 10, 500, 680],
+                 [400, 10, 100, 560],
+                 [400, 10, 600, 560],
+                 [900, 10, 0, 440],
+                 [100, 10, 550, 220],
+                 [100, 10, 700, 220],
+                 [350, 10, 0, 120],
+                 [1000, 1, 0, 0]
+                 ]
+
+        for plataforma in nivel:
+            bloque = Plataforma(plataforma[0], plataforma[1])
+            bloque.rect.x = plataforma[2]
+            bloque.rect.y = plataforma[3]
+            bloque.protagonista = self.protagonista
+            self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 200
+        bloque.rect.y = 680
+        bloque.limite_superior = 680
+        bloque.limite_inferior = 790
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 700
+        bloque.rect.y = 680
+        bloque.limite_superior = 680
+        bloque.limite_inferior = 790
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 0
+        bloque.rect.y = 560
+        bloque.limite_superior = 560
+        bloque.limite_inferior = 670
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 500
+        bloque.rect.y = 560
+        bloque.limite_superior = 560
+        bloque.limite_inferior = 670
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 900
+        bloque.rect.y = 440
+        bloque.limite_superior = 440
+        bloque.limite_inferior = 550
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 100
+        bloque.rect.y = 340
+        bloque.limite_superior = 340
+        bloque.limite_inferior = 430
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 300
+        bloque.rect.y = 260
+        bloque.limite_superior = 260
+        bloque.limite_inferior = 340
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 400
+        bloque.rect.y = 100
+        bloque.limite_superior = 100
+        bloque.limite_inferior = 150
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+
+class Nivel_03(Nivel):
+    def __init__(self, protagonista):
+        &#34;&#34;&#34;Crea el nivel 3 con sus respectivas plataformas
+        Args:
+            protagonista (objeto): Contiene los atributos del
+            protagonista
+        &#34;&#34;&#34;
+        Nivel.__init__(self, protagonista)
+
+        self.imagende_fondo = pygame.image.load(&#34;fondof.png&#34;).convert()
+
+        nivel = [[450, 10, 0, 490],
+                 [450, 10, 550, 490],
+                 [100, 10, 50, 440],
+                 [100, 10, 230, 370],
+                 [100, 10, 400, 370],
+                 [100, 10, 600, 370],
+                 [100, 10, 800, 370],
+                 [100, 10, 900, 300],
+                 [100, 10, 780, 210],
+                 [100, 10, 580, 210],
+                 [300, 10, 0, 120],
+                 [1000, 1, 0, 0]
+                 ]
+
+        for plataforma in nivel:
+            bloque = Plataforma(plataforma[0], plataforma[1])
+            bloque.rect.x = plataforma[2]
+            bloque.rect.y = plataforma[3]
+            bloque.protagonista = self.protagonista
+            self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 800
+        bloque.rect.y = 700
+        bloque.limite_superior = 700
+        bloque.limite_inferior = 790
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 600
+        bloque.rect.y = 640
+        bloque.limite_superior = 640
+        bloque.limite_inferior = 700
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 450
+        bloque.rect.y = 490
+        bloque.limite_superior = 490
+        bloque.limite_inferior = 630
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 400
+        bloque.rect.y = 100
+        bloque.limite_superior = 100
+        bloque.limite_inferior = 180
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+
+def main():
+    &#34;&#34;&#34;Programa Principal
+    &#34;&#34;&#34;
+    pygame.init()
+
+    dimensiones = [LARGO_PANTALLA, ALTO_PANTALLA]
+    pantalla = pygame.display.set_mode(dimensiones)
+
+    pygame.display.set_caption(&#34;Donkey Konga&#34;)
+
+    protagonista = Protagonista()
+
+    listade_niveles = [Nivel_01(protagonista), Nivel_02(protagonista),
+                       Nivel_03(protagonista)]
+
+    nivel_actual_no = 0
+    nivel_actual = listade_niveles[nivel_actual_no]
+
+    lista_sprites_activos = pygame.sprite.Group()
+    protagonista.nivel = nivel_actual
+
+    protagonista.rect.x = 0
+    protagonista.rect.y = ALTO_PANTALLA - protagonista.rect.height
+    lista_sprites_activos.add(protagonista)
+
+    hecho = False
+
+    reloj = pygame.time.Clock()
+
+    while not hecho:
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                hecho = True
+
+            if evento.type == pygame.KEYDOWN:
+                if evento.key == pygame.K_LEFT:
+                    protagonista.ir_izquierda()
+                if evento.key == pygame.K_RIGHT:
+                    protagonista.ir_derecha()
+                if evento.key == pygame.K_UP:
+                    protagonista.saltar()
+
+            if evento.type == pygame.KEYUP:
+                if evento.key == pygame.K_LEFT and protagonista.cambio_x &lt; 0:
+                    protagonista.stop()
+                if evento.key == pygame.K_RIGHT and protagonista.cambio_x &gt; 0:
+                    protagonista.stop()
+
+        lista_sprites_activos.update()
+
+        nivel_actual.update()
+
+        if protagonista.rect.right &gt; LARGO_PANTALLA:
+            protagonista.rect.right = LARGO_PANTALLA
+
+        if protagonista.rect.left &lt; 0:
+            protagonista.rect.left = 0
+
+        if protagonista.rect.x == 0 and protagonista.rect.y == 10:
+            nivel_actual_no += 1
+            nivel_actual = listade_niveles[nivel_actual_no]
+            protagonista.nivel = nivel_actual
+            protagonista.rect.x = 0
+            protagonista.rect.y = ALTO_PANTALLA - protagonista.rect.height
+            lista_sprites_activos.add(protagonista)
+
+        nivel_actual.draw(pantalla)
+        lista_sprites_activos.draw(pantalla)
+
+        reloj.tick(60)
+
+        pygame.display.flip()
+
+    pygame.quit()
+
+
+if __name__ == &#34;__main__&#34;:
+    main()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-variables">Global variables</h2>
+<dl>
+<dt id="alvarito.ALTO_PANTALLA"><code class="name">var <span class="ident">ALTO_PANTALLA</span></code></dt>
+<dd>
+<section class="desc"><p>Dimensiones de la pantalla</p></section>
+</dd>
+<dt id="alvarito.VERDE"><code class="name">var <span class="ident">VERDE</span></code></dt>
+<dd>
+<section class="desc"><p>Colores</p></section>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="alvarito.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Programa Principal</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def main():
+    &#34;&#34;&#34;Programa Principal
+    &#34;&#34;&#34;
+    pygame.init()
+
+    dimensiones = [LARGO_PANTALLA, ALTO_PANTALLA]
+    pantalla = pygame.display.set_mode(dimensiones)
+
+    pygame.display.set_caption(&#34;Donkey Konga&#34;)
+
+    protagonista = Protagonista()
+
+    listade_niveles = [Nivel_01(protagonista), Nivel_02(protagonista),
+                       Nivel_03(protagonista)]
+
+    nivel_actual_no = 0
+    nivel_actual = listade_niveles[nivel_actual_no]
+
+    lista_sprites_activos = pygame.sprite.Group()
+    protagonista.nivel = nivel_actual
+
+    protagonista.rect.x = 0
+    protagonista.rect.y = ALTO_PANTALLA - protagonista.rect.height
+    lista_sprites_activos.add(protagonista)
+
+    hecho = False
+
+    reloj = pygame.time.Clock()
+
+    while not hecho:
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                hecho = True
+
+            if evento.type == pygame.KEYDOWN:
+                if evento.key == pygame.K_LEFT:
+                    protagonista.ir_izquierda()
+                if evento.key == pygame.K_RIGHT:
+                    protagonista.ir_derecha()
+                if evento.key == pygame.K_UP:
+                    protagonista.saltar()
+
+            if evento.type == pygame.KEYUP:
+                if evento.key == pygame.K_LEFT and protagonista.cambio_x &lt; 0:
+                    protagonista.stop()
+                if evento.key == pygame.K_RIGHT and protagonista.cambio_x &gt; 0:
+                    protagonista.stop()
+
+        lista_sprites_activos.update()
+
+        nivel_actual.update()
+
+        if protagonista.rect.right &gt; LARGO_PANTALLA:
+            protagonista.rect.right = LARGO_PANTALLA
+
+        if protagonista.rect.left &lt; 0:
+            protagonista.rect.left = 0
+
+        if protagonista.rect.x == 0 and protagonista.rect.y == 10:
+            nivel_actual_no += 1
+            nivel_actual = listade_niveles[nivel_actual_no]
+            protagonista.nivel = nivel_actual
+            protagonista.rect.x = 0
+            protagonista.rect.y = ALTO_PANTALLA - protagonista.rect.height
+            lista_sprites_activos.add(protagonista)
+
+        nivel_actual.draw(pantalla)
+        lista_sprites_activos.draw(pantalla)
+
+        reloj.tick(60)
+
+        pygame.display.flip()
+
+    pygame.quit()</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="alvarito.Nivel"><code class="flex name class">
+<span>class <span class="ident">Nivel</span></span>
+<span>(</span><span>protagonista)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Constructor requerido para cuando las plataformas
+móviles colisionan con el protagonista</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>protagonista</code></strong> :&ensp;<code>objeto</code></dt>
+<dd>Contiene los atributos del</dd>
+<dt><strong><code>protagonista</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">class Nivel(object):
+    def __init__(self, protagonista):
+        &#34;&#34;&#34; Constructor requerido para cuando las plataformas
+        móviles colisionan con el protagonista
+        Args:
+            protagonista (objeto): Contiene los atributos del
+            protagonista
+        &#34;&#34;&#34;
+        self.listade_plataformas = pygame.sprite.Group()
+        self.protagonista = protagonista
+        self.imagende_fondo = None
+
+    def update(self):
+        &#34;&#34;&#34; Actualiza las plataformas en el nivel
+        &#34;&#34;&#34;
+        self.listade_plataformas.update()
+
+    def draw(self, pantalla):
+        &#34;&#34;&#34; Dibuja todo en el nivel
+        Args:
+            pantalla (pygame.display.set_mode): Crea la pantalla del
+            juego con las dimensiones entregadas
+        &#34;&#34;&#34;
+        pantalla.fill(AZUL)
+        pantalla.blit(self.imagende_fondo, (0, 0))
+
+        self.listade_plataformas.draw(pantalla)</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="alvarito.Nivel_01" href="#alvarito.Nivel_01">Nivel_01</a></li>
+<li><a title="alvarito.Nivel_02" href="#alvarito.Nivel_02">Nivel_02</a></li>
+<li><a title="alvarito.Nivel_03" href="#alvarito.Nivel_03">Nivel_03</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="alvarito.Nivel.draw"><code class="name flex">
+<span>def <span class="ident">draw</span></span>(<span>self, pantalla)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Dibuja todo en el nivel</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>pantalla</code></strong> :&ensp;<code>pygame.display.set_mode</code></dt>
+<dd>Crea la pantalla del</dd>
+</dl>
+<p>juego con las dimensiones entregadas</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def draw(self, pantalla):
+    &#34;&#34;&#34; Dibuja todo en el nivel
+    Args:
+        pantalla (pygame.display.set_mode): Crea la pantalla del
+        juego con las dimensiones entregadas
+    &#34;&#34;&#34;
+    pantalla.fill(AZUL)
+    pantalla.blit(self.imagende_fondo, (0, 0))
+
+    self.listade_plataformas.draw(pantalla)</code></pre>
+</details>
+</dd>
+<dt id="alvarito.Nivel.update"><code class="name flex">
+<span>def <span class="ident">update</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Actualiza las plataformas en el nivel</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def update(self):
+    &#34;&#34;&#34; Actualiza las plataformas en el nivel
+    &#34;&#34;&#34;
+    self.listade_plataformas.update()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="alvarito.Nivel_01"><code class="flex name class">
+<span>class <span class="ident">Nivel_01</span></span>
+<span>(</span><span>protagonista)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Crea el nivel 1 con sus respectivas plataformas</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>protagonista</code></strong> :&ensp;<code>objeto</code></dt>
+<dd>Contiene los atributos del</dd>
+<dt><strong><code>protagonista</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">class Nivel_01(Nivel):
+    def __init__(self, protagonista):
+        &#34;&#34;&#34;Crea el nivel 1 con sus respectivas plataformas
+        Args:
+            protagonista (objeto): Contiene los atributos del
+            protagonista
+        &#34;&#34;&#34;
+        Nivel.__init__(self, protagonista)
+
+        self.imagende_fondo = pygame.image.load(&#34;fondof.png&#34;).convert()
+
+        nivel = [[500, 10, 0, 120],
+                 [100, 10, 450, 330],
+                 [100, 10, 270, 330],
+                 [100, 10, 100, 420],
+                 [100, 10, 270, 480],
+                 [100, 10, 0, 550],
+                 [600, 10, 200, 550],
+                 [100, 10, 900, 550],
+                 [450, 10, 0, 680],
+                 [450, 10, 550, 680],
+                 [1000, 1, 0, 0]
+                 ]
+
+        for plataforma in nivel:
+            bloque = Plataforma(plataforma[0], plataforma[1])
+            bloque.rect.x = plataforma[2]
+            bloque.rect.y = plataforma[3]
+            bloque.protagonista = self.protagonista
+            self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 451
+        bloque.rect.y = 710
+        bloque.limite_superior = 710
+        bloque.limite_inferior = 790
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 100
+        bloque.rect.y = 590
+        bloque.limite_superior = 590
+        bloque.limite_inferior = 690
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 800
+        bloque.rect.y = 560
+        bloque.limite_superior = 560
+        bloque.limite_inferior = 670
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 550
+        bloque.rect.y = 90
+        bloque.limite_superior = 90
+        bloque.limite_inferior = 270
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="alvarito.Nivel" href="#alvarito.Nivel">Nivel</a></li>
+</ul>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="alvarito.Nivel" href="#alvarito.Nivel">Nivel</a></b></code>:
+<ul class="hlist">
+<li><code><a title="alvarito.Nivel.draw" href="#alvarito.Nivel.draw">draw</a></code></li>
+<li><code><a title="alvarito.Nivel.update" href="#alvarito.Nivel.update">update</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="alvarito.Nivel_02"><code class="flex name class">
+<span>class <span class="ident">Nivel_02</span></span>
+<span>(</span><span>protagonista)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Crea el nivel 2 con sus respectivas plataformas</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>protagonista</code></strong> :&ensp;<code>objeto</code></dt>
+<dd>Contiene los atributos del</dd>
+<dt><strong><code>protagonista</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">class Nivel_02(Nivel):
+    def __init__(self, protagonista):
+        &#34;&#34;&#34;Crea el nivel 2 con sus respectivas plataformas
+        Args:
+            protagonista (objeto): Contiene los atributos del
+            protagonista
+        &#34;&#34;&#34;
+        Nivel.__init__(self, protagonista)
+
+        self.imagende_fondo = pygame.image.load(&#34;fondof.png&#34;).convert()
+
+        nivel = [[200, 10, 0, 680],
+                 [200, 10, 500, 680],
+                 [400, 10, 100, 560],
+                 [400, 10, 600, 560],
+                 [900, 10, 0, 440],
+                 [100, 10, 550, 220],
+                 [100, 10, 700, 220],
+                 [350, 10, 0, 120],
+                 [1000, 1, 0, 0]
+                 ]
+
+        for plataforma in nivel:
+            bloque = Plataforma(plataforma[0], plataforma[1])
+            bloque.rect.x = plataforma[2]
+            bloque.rect.y = plataforma[3]
+            bloque.protagonista = self.protagonista
+            self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 200
+        bloque.rect.y = 680
+        bloque.limite_superior = 680
+        bloque.limite_inferior = 790
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 700
+        bloque.rect.y = 680
+        bloque.limite_superior = 680
+        bloque.limite_inferior = 790
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 0
+        bloque.rect.y = 560
+        bloque.limite_superior = 560
+        bloque.limite_inferior = 670
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 500
+        bloque.rect.y = 560
+        bloque.limite_superior = 560
+        bloque.limite_inferior = 670
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 900
+        bloque.rect.y = 440
+        bloque.limite_superior = 440
+        bloque.limite_inferior = 550
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 100
+        bloque.rect.y = 340
+        bloque.limite_superior = 340
+        bloque.limite_inferior = 430
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 300
+        bloque.rect.y = 260
+        bloque.limite_superior = 260
+        bloque.limite_inferior = 340
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 400
+        bloque.rect.y = 100
+        bloque.limite_superior = 100
+        bloque.limite_inferior = 150
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="alvarito.Nivel" href="#alvarito.Nivel">Nivel</a></li>
+</ul>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="alvarito.Nivel" href="#alvarito.Nivel">Nivel</a></b></code>:
+<ul class="hlist">
+<li><code><a title="alvarito.Nivel.draw" href="#alvarito.Nivel.draw">draw</a></code></li>
+<li><code><a title="alvarito.Nivel.update" href="#alvarito.Nivel.update">update</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="alvarito.Nivel_03"><code class="flex name class">
+<span>class <span class="ident">Nivel_03</span></span>
+<span>(</span><span>protagonista)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Crea el nivel 3 con sus respectivas plataformas</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>protagonista</code></strong> :&ensp;<code>objeto</code></dt>
+<dd>Contiene los atributos del</dd>
+<dt><strong><code>protagonista</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">class Nivel_03(Nivel):
+    def __init__(self, protagonista):
+        &#34;&#34;&#34;Crea el nivel 3 con sus respectivas plataformas
+        Args:
+            protagonista (objeto): Contiene los atributos del
+            protagonista
+        &#34;&#34;&#34;
+        Nivel.__init__(self, protagonista)
+
+        self.imagende_fondo = pygame.image.load(&#34;fondof.png&#34;).convert()
+
+        nivel = [[450, 10, 0, 490],
+                 [450, 10, 550, 490],
+                 [100, 10, 50, 440],
+                 [100, 10, 230, 370],
+                 [100, 10, 400, 370],
+                 [100, 10, 600, 370],
+                 [100, 10, 800, 370],
+                 [100, 10, 900, 300],
+                 [100, 10, 780, 210],
+                 [100, 10, 580, 210],
+                 [300, 10, 0, 120],
+                 [1000, 1, 0, 0]
+                 ]
+
+        for plataforma in nivel:
+            bloque = Plataforma(plataforma[0], plataforma[1])
+            bloque.rect.x = plataforma[2]
+            bloque.rect.y = plataforma[3]
+            bloque.protagonista = self.protagonista
+            self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 800
+        bloque.rect.y = 700
+        bloque.limite_superior = 700
+        bloque.limite_inferior = 790
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 600
+        bloque.rect.y = 640
+        bloque.limite_superior = 640
+        bloque.limite_inferior = 700
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 450
+        bloque.rect.y = 490
+        bloque.limite_superior = 490
+        bloque.limite_inferior = 630
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)
+
+        bloque = PlataformaEnMovimiento(100, 10)
+        bloque.rect.x = 400
+        bloque.rect.y = 100
+        bloque.limite_superior = 100
+        bloque.limite_inferior = 180
+        bloque.cambio_y = -1
+        bloque.protagonista = self.protagonista
+        bloque.nivel = self
+        self.listade_plataformas.add(bloque)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="alvarito.Nivel" href="#alvarito.Nivel">Nivel</a></li>
+</ul>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="alvarito.Nivel" href="#alvarito.Nivel">Nivel</a></b></code>:
+<ul class="hlist">
+<li><code><a title="alvarito.Nivel.draw" href="#alvarito.Nivel.draw">draw</a></code></li>
+<li><code><a title="alvarito.Nivel.update" href="#alvarito.Nivel.update">update</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="alvarito.Plataforma"><code class="flex name class">
+<span>class <span class="ident">Plataforma</span></span>
+<span>(</span><span>largo, alto)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>simple base class for visible game objects</p>
+<p>pygame.sprite.Sprite(*groups): return Sprite</p>
+<p>The base class for visible game objects. Derived classes will want to
+override the Sprite.update() method and assign Sprite.image and Sprite.rect
+attributes.
+The initializer can accept any number of Group instances that
+the Sprite will become a member of.</p>
+<p>When subclassing the Sprite class, be sure to call the base initializer
+before adding the Sprite to Groups.</p>
+<p>Constructor de las plataformas donde se mueve el
+protagonista</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>largo</code></strong> :&ensp;<code>int</code></dt>
+<dd>Largo de la plataforma</dd>
+<dt><strong><code>alto</code></strong> :&ensp;<code>int</code></dt>
+<dd>Alto de la plataforma</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">class Plataforma(pygame.sprite.Sprite):
+    def __init__(self, largo, alto):
+        &#34;&#34;&#34; Constructor de las plataformas donde se mueve el
+        protagonista
+        Args:
+            largo (int): Largo de la plataforma
+            alto (int): Alto de la plataforma
+        &#34;&#34;&#34;
+        super().__init__()
+        self.image = pygame.Surface([largo, alto])
+        self.image.fill(NEGRO)
+        self.rect = self.image.get_rect()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pygame.sprite.Sprite</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="alvarito.PlataformaEnMovimiento" href="#alvarito.PlataformaEnMovimiento">PlataformaEnMovimiento</a></li>
+</ul>
+</dd>
+<dt id="alvarito.PlataformaEnMovimiento"><code class="flex name class">
+<span>class <span class="ident">PlataformaEnMovimiento</span></span>
+<span>(</span><span>largo, alto)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>simple base class for visible game objects</p>
+<p>pygame.sprite.Sprite(*groups): return Sprite</p>
+<p>The base class for visible game objects. Derived classes will want to
+override the Sprite.update() method and assign Sprite.image and Sprite.rect
+attributes.
+The initializer can accept any number of Group instances that
+the Sprite will become a member of.</p>
+<p>When subclassing the Sprite class, be sure to call the base initializer
+before adding the Sprite to Groups.</p>
+<p>Constructor de las plataformas donde se mueve el
+protagonista</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>largo</code></strong> :&ensp;<code>int</code></dt>
+<dd>Largo de la plataforma</dd>
+<dt><strong><code>alto</code></strong> :&ensp;<code>int</code></dt>
+<dd>Alto de la plataforma</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">class PlataformaEnMovimiento(Plataforma):
+    cambio_x = 0
+    cambio_y = 0
+
+    limite_superior = 0
+    limite_inferior = 0
+    limite_izquierda = 0
+    limite_derecha = 0
+
+    protagonista = None
+
+    Nivel = None
+
+    def update(self):
+        &#34;&#34;&#34;Actualiza el movimiento del protagonista sobre las
+        plataformas móviles y comprueba las colisiones con las mismas
+        &#34;&#34;&#34;
+        self.rect.x += self.cambio_x
+
+        impacto = pygame.sprite.collide_rect(self, self.protagonista)
+        if impacto:
+            if self.cambio_x &lt; 0:
+                self.protagonista.rect.right = self.rect.left
+            else:
+                self.protagonista.rect.left = self.rect.right
+
+        self.rect.y += self.cambio_y
+
+        impacto = pygame.sprite.collide_rect(self, self.protagonista)
+        if impacto:
+            if self.cambio_y &lt; 0:
+                self.protagonista.rect.bottom = self.rect.top
+            else:
+                self.protagonista.rect.top = self.rect.bottom
+
+        if self.rect.bottom &gt; self.limite_inferior or \
+                self.rect.top &lt; self.limite_superior:
+            self.cambio_y *= -1</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="alvarito.Plataforma" href="#alvarito.Plataforma">Plataforma</a></li>
+<li>pygame.sprite.Sprite</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="alvarito.PlataformaEnMovimiento.Nivel"><code class="name">var <span class="ident">Nivel</span></code></dt>
+<dd>
+<section class="desc"></section>
+</dd>
+<dt id="alvarito.PlataformaEnMovimiento.cambio_x"><code class="name">var <span class="ident">cambio_x</span></code></dt>
+<dd>
+<section class="desc"></section>
+</dd>
+<dt id="alvarito.PlataformaEnMovimiento.cambio_y"><code class="name">var <span class="ident">cambio_y</span></code></dt>
+<dd>
+<section class="desc"></section>
+</dd>
+<dt id="alvarito.PlataformaEnMovimiento.limite_derecha"><code class="name">var <span class="ident">limite_derecha</span></code></dt>
+<dd>
+<section class="desc"></section>
+</dd>
+<dt id="alvarito.PlataformaEnMovimiento.limite_inferior"><code class="name">var <span class="ident">limite_inferior</span></code></dt>
+<dd>
+<section class="desc"></section>
+</dd>
+<dt id="alvarito.PlataformaEnMovimiento.limite_izquierda"><code class="name">var <span class="ident">limite_izquierda</span></code></dt>
+<dd>
+<section class="desc"></section>
+</dd>
+<dt id="alvarito.PlataformaEnMovimiento.limite_superior"><code class="name">var <span class="ident">limite_superior</span></code></dt>
+<dd>
+<section class="desc"></section>
+</dd>
+<dt id="alvarito.PlataformaEnMovimiento.protagonista"><code class="name">var <span class="ident">protagonista</span></code></dt>
+<dd>
+<section class="desc"></section>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="alvarito.PlataformaEnMovimiento.update"><code class="name flex">
+<span>def <span class="ident">update</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Actualiza el movimiento del protagonista sobre las
+plataformas móviles y comprueba las colisiones con las mismas</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def update(self):
+    &#34;&#34;&#34;Actualiza el movimiento del protagonista sobre las
+    plataformas móviles y comprueba las colisiones con las mismas
+    &#34;&#34;&#34;
+    self.rect.x += self.cambio_x
+
+    impacto = pygame.sprite.collide_rect(self, self.protagonista)
+    if impacto:
+        if self.cambio_x &lt; 0:
+            self.protagonista.rect.right = self.rect.left
+        else:
+            self.protagonista.rect.left = self.rect.right
+
+    self.rect.y += self.cambio_y
+
+    impacto = pygame.sprite.collide_rect(self, self.protagonista)
+    if impacto:
+        if self.cambio_y &lt; 0:
+            self.protagonista.rect.bottom = self.rect.top
+        else:
+            self.protagonista.rect.top = self.rect.bottom
+
+    if self.rect.bottom &gt; self.limite_inferior or \
+            self.rect.top &lt; self.limite_superior:
+        self.cambio_y *= -1</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="alvarito.Protagonista"><code class="flex name class">
+<span>class <span class="ident">Protagonista</span></span>
+</code></dt>
+<dd>
+<section class="desc"><p>simple base class for visible game objects</p>
+<p>pygame.sprite.Sprite(*groups): return Sprite</p>
+<p>The base class for visible game objects. Derived classes will want to
+override the Sprite.update() method and assign Sprite.image and Sprite.rect
+attributes.
+The initializer can accept any number of Group instances that
+the Sprite will become a member of.</p>
+<p>When subclassing the Sprite class, be sure to call the base initializer
+before adding the Sprite to Groups.</p>
+<p>Define la carga de imagen del protagonista</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">class Protagonista(pygame.sprite.Sprite):
+    cambio_x = 0
+    cambio_y = 0
+    nivel = None
+
+    def __init__(self):
+        &#34;&#34;&#34;Define la carga de imagen del protagonista
+        &#34;&#34;&#34;
+        super().__init__()
+
+        self.walkingLeft = [pygame.image.load(&#34;L1.png&#34;),
+                            pygame.image.load(&#34;L2.png&#34;),
+                            pygame.image.load(&#34;L3.png&#34;),
+                            pygame.image.load(&#34;L4.png&#34;),
+                            pygame.image.load(&#34;L5.png&#34;),
+                            pygame.image.load(&#34;L6.png&#34;),
+                            pygame.image.load(&#34;L7.png&#34;),
+                            pygame.image.load(&#34;L8.png&#34;),
+                            pygame.image.load(&#34;L9.png&#34;)
+                            ]
+        self.walkingRight = [pygame.image.load(&#34;R1.png&#34;),
+                             pygame.image.load(&#34;R2.png&#34;),
+                             pygame.image.load(&#34;R3.png&#34;),
+                             pygame.image.load(&#34;R4.png&#34;),
+                             pygame.image.load(&#34;R5.png&#34;),
+                             pygame.image.load(&#34;R6.png&#34;),
+                             pygame.image.load(&#34;R7.png&#34;),
+                             pygame.image.load(&#34;R8.png&#34;),
+                             pygame.image.load(&#34;R9.png&#34;)
+                             ]
+
+        self.direction = &#34;R&#34;
+        self.image = self.walkingRight[0]
+        self.rect = self.image.get_rect()
+
+    def update(self):
+        &#34;&#34;&#34;Actualiza el movimiento y animación del protagonista y
+        comprueba colisiones con los objetos del nivel
+        &#34;&#34;&#34;
+        self.calc_grav()
+        self.rect.x += self.cambio_x
+        pos = self.rect.x
+        if self.direction == &#34;R&#34;:
+            frame = (pos // 27) % len(self.walkingRight)
+            self.image = self.walkingRight[frame]
+        else:
+            frame = (pos // 27) % len(self.walkingLeft)
+            self.image = self.walkingLeft[frame]
+
+        lista_impactos_bloques = pygame.sprite.spritecollide(self,
+                                                             self.nivel.listade_plataformas, False)
+
+        for bloque in lista_impactos_bloques:
+            if self.cambio_x &gt; 0:
+                self.rect.right = bloque.rect.left
+            elif self.cambio_x &lt; 0:
+                self.rect.left = bloque.rect.right
+        self.rect.y += self.cambio_y
+
+        lista_impactos_bloques = pygame.sprite.spritecollide(self,
+                                                             self.nivel.listade_plataformas, False)
+
+        for bloque in lista_impactos_bloques:
+            if self.cambio_y &gt; 0:
+                self.rect.bottom = bloque.rect.top
+            elif self.cambio_y &lt; 0:
+                self.rect.top = bloque.rect.bottom
+            self.cambio_y = 0
+
+    def calc_grav(self):
+        &#34;&#34;&#34; Permite calcular la gravedad dek protagonista
+        &#34;&#34;&#34;
+        if self.cambio_y == 0:
+            self.cambio_y = 1
+        else:
+            self.cambio_y += .35
+
+        if self.rect.y &gt;= ALTO_PANTALLA - self.rect.height and \
+                self.cambio_y &gt;= 0:
+            self.cambio_y = 0
+            self.rect.y = ALTO_PANTALLA - self.rect.height
+
+    def saltar(self):
+        &#34;&#34;&#34; Permite al protagonista saltar
+        &#34;&#34;&#34;
+        self.rect.y += 2
+        lista_impactos_plataforma = pygame.sprite.spritecollide(self,
+                                                                self.nivel.listade_plataformas, False)
+        self.rect.y -= 2
+
+        if len(lista_impactos_plataforma) &gt; 0 or \
+                self.rect.bottom &gt;= ALTO_PANTALLA:
+            self.cambio_y = -8
+
+    def ir_izquierda(self):
+        &#34;&#34;&#34;Permite al protagonista moverse a la izquierda
+        &#34;&#34;&#34;
+        self.cambio_x = -6
+        self.direction = &#34;L&#34;
+
+    def ir_derecha(self):
+        &#34;&#34;&#34;Permite al protagonista moverse a la izquierda
+        &#34;&#34;&#34;
+        self.cambio_x = 6
+        self.direction = &#34;R&#34;
+
+    def stop(self):
+        &#34;&#34;&#34;Permite al protagonista quedarse quieto
+        &#34;&#34;&#34;
+        self.cambio_x = 0</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pygame.sprite.Sprite</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="alvarito.Protagonista.cambio_x"><code class="name">var <span class="ident">cambio_x</span></code></dt>
+<dd>
+<section class="desc"></section>
+</dd>
+<dt id="alvarito.Protagonista.cambio_y"><code class="name">var <span class="ident">cambio_y</span></code></dt>
+<dd>
+<section class="desc"></section>
+</dd>
+<dt id="alvarito.Protagonista.nivel"><code class="name">var <span class="ident">nivel</span></code></dt>
+<dd>
+<section class="desc"></section>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="alvarito.Protagonista.calc_grav"><code class="name flex">
+<span>def <span class="ident">calc_grav</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Permite calcular la gravedad dek protagonista</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def calc_grav(self):
+    &#34;&#34;&#34; Permite calcular la gravedad dek protagonista
+    &#34;&#34;&#34;
+    if self.cambio_y == 0:
+        self.cambio_y = 1
+    else:
+        self.cambio_y += .35
+
+    if self.rect.y &gt;= ALTO_PANTALLA - self.rect.height and \
+            self.cambio_y &gt;= 0:
+        self.cambio_y = 0
+        self.rect.y = ALTO_PANTALLA - self.rect.height</code></pre>
+</details>
+</dd>
+<dt id="alvarito.Protagonista.ir_derecha"><code class="name flex">
+<span>def <span class="ident">ir_derecha</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Permite al protagonista moverse a la izquierda</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def ir_derecha(self):
+    &#34;&#34;&#34;Permite al protagonista moverse a la izquierda
+    &#34;&#34;&#34;
+    self.cambio_x = 6
+    self.direction = &#34;R&#34;</code></pre>
+</details>
+</dd>
+<dt id="alvarito.Protagonista.ir_izquierda"><code class="name flex">
+<span>def <span class="ident">ir_izquierda</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Permite al protagonista moverse a la izquierda</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def ir_izquierda(self):
+    &#34;&#34;&#34;Permite al protagonista moverse a la izquierda
+    &#34;&#34;&#34;
+    self.cambio_x = -6
+    self.direction = &#34;L&#34;</code></pre>
+</details>
+</dd>
+<dt id="alvarito.Protagonista.saltar"><code class="name flex">
+<span>def <span class="ident">saltar</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Permite al protagonista saltar</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def saltar(self):
+    &#34;&#34;&#34; Permite al protagonista saltar
+    &#34;&#34;&#34;
+    self.rect.y += 2
+    lista_impactos_plataforma = pygame.sprite.spritecollide(self,
+                                                            self.nivel.listade_plataformas, False)
+    self.rect.y -= 2
+
+    if len(lista_impactos_plataforma) &gt; 0 or \
+            self.rect.bottom &gt;= ALTO_PANTALLA:
+        self.cambio_y = -8</code></pre>
+</details>
+</dd>
+<dt id="alvarito.Protagonista.stop"><code class="name flex">
+<span>def <span class="ident">stop</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Permite al protagonista quedarse quieto</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def stop(self):
+    &#34;&#34;&#34;Permite al protagonista quedarse quieto
+    &#34;&#34;&#34;
+    self.cambio_x = 0</code></pre>
+</details>
+</dd>
+<dt id="alvarito.Protagonista.update"><code class="name flex">
+<span>def <span class="ident">update</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Actualiza el movimiento y animación del protagonista y
+comprueba colisiones con los objetos del nivel</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def update(self):
+    &#34;&#34;&#34;Actualiza el movimiento y animación del protagonista y
+    comprueba colisiones con los objetos del nivel
+    &#34;&#34;&#34;
+    self.calc_grav()
+    self.rect.x += self.cambio_x
+    pos = self.rect.x
+    if self.direction == &#34;R&#34;:
+        frame = (pos // 27) % len(self.walkingRight)
+        self.image = self.walkingRight[frame]
+    else:
+        frame = (pos // 27) % len(self.walkingLeft)
+        self.image = self.walkingLeft[frame]
+
+    lista_impactos_bloques = pygame.sprite.spritecollide(self,
+                                                         self.nivel.listade_plataformas, False)
+
+    for bloque in lista_impactos_bloques:
+        if self.cambio_x &gt; 0:
+            self.rect.right = bloque.rect.left
+        elif self.cambio_x &lt; 0:
+            self.rect.left = bloque.rect.right
+    self.rect.y += self.cambio_y
+
+    lista_impactos_bloques = pygame.sprite.spritecollide(self,
+                                                         self.nivel.listade_plataformas, False)
+
+    for bloque in lista_impactos_bloques:
+        if self.cambio_y &gt; 0:
+            self.rect.bottom = bloque.rect.top
+        elif self.cambio_y &lt; 0:
+            self.rect.top = bloque.rect.bottom
+        self.cambio_y = 0</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-variables">Global variables</a></h3>
+<ul class="">
+<li><code><a title="alvarito.ALTO_PANTALLA" href="#alvarito.ALTO_PANTALLA">ALTO_PANTALLA</a></code></li>
+<li><code><a title="alvarito.VERDE" href="#alvarito.VERDE">VERDE</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="alvarito.main" href="#alvarito.main">main</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="alvarito.Nivel" href="#alvarito.Nivel">Nivel</a></code></h4>
+<ul class="">
+<li><code><a title="alvarito.Nivel.draw" href="#alvarito.Nivel.draw">draw</a></code></li>
+<li><code><a title="alvarito.Nivel.update" href="#alvarito.Nivel.update">update</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="alvarito.Nivel_01" href="#alvarito.Nivel_01">Nivel_01</a></code></h4>
+</li>
+<li>
+<h4><code><a title="alvarito.Nivel_02" href="#alvarito.Nivel_02">Nivel_02</a></code></h4>
+</li>
+<li>
+<h4><code><a title="alvarito.Nivel_03" href="#alvarito.Nivel_03">Nivel_03</a></code></h4>
+</li>
+<li>
+<h4><code><a title="alvarito.Plataforma" href="#alvarito.Plataforma">Plataforma</a></code></h4>
+</li>
+<li>
+<h4><code><a title="alvarito.PlataformaEnMovimiento" href="#alvarito.PlataformaEnMovimiento">PlataformaEnMovimiento</a></code></h4>
+<ul class="two-column">
+<li><code><a title="alvarito.PlataformaEnMovimiento.Nivel" href="#alvarito.PlataformaEnMovimiento.Nivel">Nivel</a></code></li>
+<li><code><a title="alvarito.PlataformaEnMovimiento.cambio_x" href="#alvarito.PlataformaEnMovimiento.cambio_x">cambio_x</a></code></li>
+<li><code><a title="alvarito.PlataformaEnMovimiento.cambio_y" href="#alvarito.PlataformaEnMovimiento.cambio_y">cambio_y</a></code></li>
+<li><code><a title="alvarito.PlataformaEnMovimiento.limite_derecha" href="#alvarito.PlataformaEnMovimiento.limite_derecha">limite_derecha</a></code></li>
+<li><code><a title="alvarito.PlataformaEnMovimiento.limite_inferior" href="#alvarito.PlataformaEnMovimiento.limite_inferior">limite_inferior</a></code></li>
+<li><code><a title="alvarito.PlataformaEnMovimiento.limite_izquierda" href="#alvarito.PlataformaEnMovimiento.limite_izquierda">limite_izquierda</a></code></li>
+<li><code><a title="alvarito.PlataformaEnMovimiento.limite_superior" href="#alvarito.PlataformaEnMovimiento.limite_superior">limite_superior</a></code></li>
+<li><code><a title="alvarito.PlataformaEnMovimiento.protagonista" href="#alvarito.PlataformaEnMovimiento.protagonista">protagonista</a></code></li>
+<li><code><a title="alvarito.PlataformaEnMovimiento.update" href="#alvarito.PlataformaEnMovimiento.update">update</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="alvarito.Protagonista" href="#alvarito.Protagonista">Protagonista</a></code></h4>
+<ul class="two-column">
+<li><code><a title="alvarito.Protagonista.calc_grav" href="#alvarito.Protagonista.calc_grav">calc_grav</a></code></li>
+<li><code><a title="alvarito.Protagonista.cambio_x" href="#alvarito.Protagonista.cambio_x">cambio_x</a></code></li>
+<li><code><a title="alvarito.Protagonista.cambio_y" href="#alvarito.Protagonista.cambio_y">cambio_y</a></code></li>
+<li><code><a title="alvarito.Protagonista.ir_derecha" href="#alvarito.Protagonista.ir_derecha">ir_derecha</a></code></li>
+<li><code><a title="alvarito.Protagonista.ir_izquierda" href="#alvarito.Protagonista.ir_izquierda">ir_izquierda</a></code></li>
+<li><code><a title="alvarito.Protagonista.nivel" href="#alvarito.Protagonista.nivel">nivel</a></code></li>
+<li><code><a title="alvarito.Protagonista.saltar" href="#alvarito.Protagonista.saltar">saltar</a></code></li>
+<li><code><a title="alvarito.Protagonista.stop" href="#alvarito.Protagonista.stop">stop</a></code></li>
+<li><code><a title="alvarito.Protagonista.update" href="#alvarito.Protagonista.update">update</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.6.2</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
